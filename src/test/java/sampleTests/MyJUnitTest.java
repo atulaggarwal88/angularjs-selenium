@@ -48,7 +48,7 @@ public class MyJUnitTest {
 		webDriverManager.sendText_TextBox(driver.findElement(By.xpath("//input[@ng-model='user.name']")),"Luke", "");
 
 
-		//		driver.findElement(By.xpath("(//input)[position()=1]")).sendKeys("Luke123");
+		
 
 		//		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		//		driver.findElement(By.cssSelector("input[name='email']")).click();
@@ -62,6 +62,10 @@ public class MyJUnitTest {
 
 
 		//		driver.findElement(By.cssSelector("input[name='first_name']")).sendKeys("atul");
+	}
+	@Test
+	public void newMethod6() {
+		System.out.println("added in feature2");
 	}
 
 }
