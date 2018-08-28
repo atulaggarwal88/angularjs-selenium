@@ -44,11 +44,11 @@ public class MyJUnitTest {
 		String url = "http://cafetownsend-angular-rails.herokuapp.com/login";
 		webDriverManager.getDriver().get(url);
 		webDriverManager.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		
+
 		webDriverManager.sendText_TextBox(driver.findElement(By.xpath("//input[@ng-model='user.name']")),"Luke", "");
 
 
-		//		driver.findElement(By.xpath("(//input)[position()=1]")).sendKeys("Luke123");
+
 
 		//		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		//		driver.findElement(By.cssSelector("input[name='email']")).click();
@@ -66,6 +66,10 @@ public class MyJUnitTest {
 	@Test
 	public void newMethod5() {
 		System.out.println("added in feature1");
+	}
+	public void newMethod6() {
+		System.out.println("added in feature2");
+
 	}
 
 }
