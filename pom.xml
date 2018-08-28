@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>webapp-test</groupId>
+	<artifactId>angularjs-selenium</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<selenium-java-version>3.1.0</selenium-java-version>
+		<junit-version>4.11</junit-version>
+		<properties-maven-plugin-version>1.0.0</properties-maven-plugin-version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium-java-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng <dependency> 
+			<groupId>org.testng</groupId> <artifactId>testng</artifactId> <version>6.10</version> 
+			<scope>test</scope> </dependency> <dependency> <groupId>com.beust</groupId> 
+			<artifactId>jcommander</artifactId> <version>1.48</version> </dependency> -->
+
+		
+
+	</dependencies>
+	<build>
+
+		<plugins>
+
+			<!-- properties-maven-plugin is added to pass parameters from CLI -->
+			<!-- <plugin> <groupId>org.eclipse.m2e</groupId> <artifactId>lifecycle-mapping</artifactId> 
+				<version>1.0.0</version> <configuration> <lifecycleMappingMetadata> <pluginExecutions> 
+				<pluginExecution> <pluginExecutionFilter> <groupId>org.codehaus.mojo</groupId> 
+				<artifactId>properties-maven-plugin</artifactId> <versionRange>[1.0.0,)</versionRange> 
+				<goals> <goal>set-system-properties</goal> </goals> </pluginExecutionFilter> 
+				<action> <execute></execute> </action> </pluginExecution> </pluginExecutions> 
+				</lifecycleMappingMetadata> </configuration> </plugin> -->
+
+			<!-- maven-compiler-plugin is added to compile code in java 1.8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version> <!-- or whatever current version -->
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<!-- properties-maven-plugin is added to pass parameters from CLI -->
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>properties-maven-plugin</artifactId> 
+				<version>${properties-maven-plugin-version}</version> <executions> <execution> 
+				<goals> <goal>set-system-properties</goal> </goals> <configuration> <properties> 
+				<property> <name>atul</name> <value>atulValue</value> </property> </properties> 
+				</configuration> </execution> </executions> </plugin> -->
+
+			<!-- Added maven surefire plugin for : 1. Registering listener 2. Include 
+				test case category in groups tag 3. To set system properties in pom -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+				<configuration>
+					<systemPropertyVariables>
+						<atul>CHROME</atul>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>
